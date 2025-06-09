@@ -5,10 +5,10 @@
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs";
 
-    ollamark.url = "github:knoopx/ollamark";
+    ollamark.url = "github:SrwR16/ollamark";
     ollamark.inputs.nixpkgs.follows = "nixpkgs";
 
-    vibeapps.url = "github:knoopx/vibeapps";
+    vibeapps.url = "github:SrwR16/vibeapps";
     vibeapps.inputs.nixpkgs.follows = "nixpkgs";
 
     haumea.url = "github:nix-community/haumea";
@@ -57,8 +57,8 @@
     neuwaita.url = "github:RusticBard/Neuwaita";
     neuwaita.flake = false;
 
-    autofirma-nix.url = "github:nix-community/autofirma-nix";
-    autofirma-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # autofirma-nix.url = "github:nix-community/autofirma-nix";
+    # autofirma-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -71,7 +71,7 @@
     vibeapps,
     ollamark,
     astal-shell,
-    autofirma-nix,
+    # autofirma-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -147,7 +147,7 @@
           users.${defaults.username} = import ./home/${defaults.username}.nix;
           sharedModules = [
             vibeapps.homeManagerModules.default
-            autofirma-nix.homeManagerModules.default
+            # autofirma-nix.homeManagerModules.default
           ];
         };
       }
