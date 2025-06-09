@@ -171,7 +171,7 @@
     nixosConfigurations = {
       vm = vmConfiguration;
 
-      desktop = nixpkgs.lib.nixosSystem {
+      X = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules =
           nixosModules
@@ -196,7 +196,7 @@
         extraSpecialArgs = specialArgs;
         modules = [
           vibeapps.homeManagerModules.default
-          ./home/knoopx
+          ./home/sarw.nix
         ];
       };
     };

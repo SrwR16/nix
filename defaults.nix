@@ -3,19 +3,35 @@
   nix-colors,
   ...
 }: let
-  username = "knoopx";
+  username = "sarw";
 in {
   inherit username;
   password = username;
-  full-name = "Victor Martinez";
-  location = "Vilassar de Mar";
-  primary-email = "knoopx@gmail.com";
+  full-name = "SARWAR";
+  location = "Dhaka, Bangladesh";
+  primary-email = "sarrwar16@gmail.com";
+
+  # System configuration
+  system = {
+    hostname = "X";
+  };
+
+  # Define user configurations
+  users = {
+    sarw = {
+      avatar = ./files/avatar/face.png;
+      email = "sarrwar16@gmail.com";
+      fullName = "SARWAR";
+      gitKey = "0x2226229F5F5AB870";
+      name = "sarw";
+    };
+  };
 
   # cat $(nix-build --no-out-link '<nixpkgs>' -A xkeyboard_config)/etc/X11/xkb/rules/base.lst
-  keyMap = "eu";
-  timeZone = "Europe/Madrid";
+  keyMap = "us";
+  timeZone = "Asia/Dhaka";
   defaultLocale = "en_US.UTF-8";
-  region = "es_ES.UTF-8";
+  region = "en_US.UTF-8";
 
   avatar-image =
     (pkgs.fetchurl {
@@ -27,8 +43,8 @@ in {
   editor = "re.sonny.Commit";
 
   pubKeys = {
-    url = "https://github.com/${username}.keys";
-    sha256 = "sha256-385krE9Aoea23aQ3FJo2kpPtRrIOwxxXCCt43gHEo0Q=";
+    url = "https://github.com/SrwR16.keys";
+    sha256 = "0bsdc682c54ryz7vbd40gwj3d0gxysx22f98ypzzykln9kxnvx6v";
   };
 
   # fc-list : family
