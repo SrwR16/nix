@@ -1,12 +1,21 @@
 {
   defaults,
   config,
+  pkgs,
   ...
 }: let
   default-irs = "MaxxAudio Pro 128K MP3 4.Music w MaxxSpace";
-  irs = fetchTarball {
-    url = "file://${toString ./irs.zip}";
-    sha256 = "sha256:0lryansmrm9a0d364gmw9grrb1jzkxjy3y7ybi7simbny4h01s11";
+  irs = pkgs.stdenv.mkDerivation {
+    name = "easyeffects-irs";
+    src = ./irs.zip;
+    nativeBuildInputs = [ pkgs.unzip ];
+    unpackPhase = ''
+      unzip $src
+    '';
+    installPhase = ''
+      mkdir -p $out
+      cp *.irs $out/
+    '';
   };
 in {
   xdg.configFile."easyeffects/irs/" = {

@@ -9,7 +9,7 @@
     ];
     pulseaudio.enable = false;
     fstrim.enable = true;
-    btrfs.autoScrub.enable = true;
+    btrfs.autoScrub.enable = false;
 
     systembus-notify = {
       enable = true;
