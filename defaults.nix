@@ -35,8 +35,8 @@ in {
 
   avatar-image =
     (pkgs.fetchurl {
-      url = "https://gravatar.com/userimage/10402619/9d663d9a46ad2c752bf6cfeb93cff4fd.jpeg?size=512";
-      sha256 = "sha256-raMsbyJQgf7JPMvZtAFOBIBwFg8V7HpmtERO9J/50qQ=";
+      url = "https://0.gravatar.com/userimage/267277600/9c2360b3c41bb883fcedd80e013fbc63?size=512";
+      sha256 = "0rvqmy6zg1r7hj642wf9087mrjivn46na0nbgph3127fll6y7vlb";
     })
     .outPath;
 
