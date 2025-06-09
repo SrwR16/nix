@@ -1,54 +1,17 @@
 _: {
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/system";
-      options = ["subvol=@nixos" "compress=zstd" "noatime" "nodiratime" "discard"];
-      fsType = "btrfs";
-    };
+  # This file can be used to override the generated hardware-configuration.nix filesystem settings
+  # Currently keeping the generated hardware-configuration.nix settings as-is
 
-    "/home" = {
-      device = "/dev/disk/by-label/system";
-      options = ["subvol=@home" "compress=zstd" "noatime" "nodiratime" "discard"];
-      fsType = "btrfs";
-    };
-    "/boot" = {
-      device = "/dev/disk/by-id/nvme-eui.0025385391b31874-part1";
-      fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
-    };
-    "/mnt/storage" = {
-      device = "/dev/disk/by-label/Storage";
-      options = ["nosuid" "compress=zstd" "nodev" "nofail" "x-gvfs-show"];
-      fsType = "btrfs";
-    };
-    "/mnt/junk" = {
-      device = "/dev/disk/by-label/Junk";
-      options = ["nosuid" "compress=zstd" "nodev" "nofail" "x-gvfs-show"];
-      fsType = "btrfs";
-    };
-    "/mnt/music" = {
-      device = "/dev/disk/by-label/Music";
-      options = ["nosuid" "compress=zstd" "nodev" "nofail" "x-gvfs-show"];
-      fsType = "btrfs";
-    };
-    "/btrfs" = {
-      device = "/dev/disk/by-label/system";
-      options = ["compress=zstd" "noatime"];
-      fsType = "btrfs";
-    };
-    "/swap" = {
-      device = "/dev/disk/by-label/system";
-      options = ["subvol=@swap" "compress=lzo" "noatime"];
-      fsType = "btrfs";
-    };
-  };
+  # If you want to add additional mount points or modify settings, you can do so here
+  # For example:
+  # fileSystems."/mnt/storage" = {
+  #   device = "/dev/disk/by-label/Storage";
+  #   options = ["nosuid" "nodev" "nofail" "x-gvfs-show"];
+  #   fsType = "ext4";
+  # };
 
-  swapDevices = [
-    {device = "/swap/swapfile";}
-  ];
-
-  zramSwap = {
-    enable = false;
-    algorithm = "zstd";
-  };
+  # Currently using the defaults from hardware-configuration.nix
+  # - Root (/) on /dev/nvme0n1p8 (ext4)
+  # - Boot (/boot) on /dev/nvme0n1p4 (vfat)
+  # - Swap on /dev/nvme0n1p7 (swap partition)
 }
